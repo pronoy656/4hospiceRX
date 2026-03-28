@@ -1,31 +1,40 @@
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Login() {
   return (
-    <div className="min-h-[calc(100vh-400px)] flex items-center justify-center py-20 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.03),transparent_70%)]">
-      <div className="w-full max-w-[480px] bg-bg-primary border border-border-color p-12 rounded-3xl shadow-2xl">
-        <div className="text-center mb-12">
-          <h1 className="text-3xl font-bold text-text-primary mb-2">Welcome Back</h1>
-          <p className="text-text-secondary text-sm">Login to access your hospice management dashboard.</p>
-        </div>
-        <form className="space-y-8">
-           <div className="space-y-6">
-            <div className="space-y-2">
-              <label className="block text-sm font-bold text-text-primary pl-1">Email Address</label>
-              <input type="email" placeholder="email@hospice.org" className="w-full px-5 py-3.5 rounded-xl border border-border-color focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
+    <div className="min-h-[calc(100vh-400px)] flex items-center justify-center py-24 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.03),transparent_70%)]">
+      <Card className="w-full max-w-[440px] shadow-2xl border-border-color rounded-3xl p-4 overflow-hidden">
+        <CardHeader className="text-center space-y-4 pb-8">
+          <CardTitle className="text-3xl font-extrabold text-text-primary">Welcome Back</CardTitle>
+          <CardDescription className="text-text-secondary text-base">Login to access your hospice management dashboard.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <form className="space-y-6">
+            <div className="space-y-2.5">
+              <Label htmlFor="email" className="font-bold text-sm text-text-primary ml-1">Email Address</Label>
+              <Input id="email" type="email" placeholder="email@hospice.org" className="h-12 rounded-xl border-border-color bg-bg-primary focus:ring-2 focus:ring-primary/20" />
             </div>
-            <div className="space-y-2">
-              <label className="block text-sm font-bold text-text-primary pl-1">Password</label>
-              <input type="password" placeholder="••••••••" className="w-full px-5 py-3.5 rounded-xl border border-border-color focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
+            <div className="space-y-2.5">
+              <Label htmlFor="pass" className="font-bold text-sm text-text-primary ml-1">Password</Label>
+              <Input id="pass" type="password" placeholder="••••••••" className="h-12 rounded-xl border-border-color bg-bg-primary focus:ring-2 focus:ring-primary/20" />
             </div>
-          </div>
-          <button type="submit" className="w-full py-4 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 transition-all hover:bg-primary-hover hover:-translate-y-0.5">Login</button>
-          <div className="text-center text-sm text-text-secondary">
+            <Button className="w-full h-12 bg-primary hover:bg-primary-hover text-white font-bold rounded-xl shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 mt-4">
+              Login to Dashboard
+            </Button>
+          </form>
+        </CardContent>
+        <CardFooter className="justify-center pt-4">
+          <p className="text-sm text-text-secondary">
             Don't have an account? <Link href="/signup" className="text-primary font-bold hover:underline">Sign Up</Link>
-          </div>
-        </form>
-      </div>
+          </p>
+        </CardFooter>
+      </Card>
     </div>
   );
 }
+
 

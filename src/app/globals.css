@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-primary: #2563eb;
-  --color-primary-hover: #1d4ed8;
+  --color-primary: #38B6FF;
+  --color-primary-hover: #31a1e0;
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f8fafc;
   --color-text-primary: #0f172a;
@@ -16,6 +16,7 @@
   --radius-md: 0.5rem;
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --font-sans: 'Inter', sans-serif;
 }
 
 @layer base {
@@ -28,6 +29,7 @@
 
   body {
     @apply antialiased font-sans bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
     line-height: 1.5;
   }
   html {
