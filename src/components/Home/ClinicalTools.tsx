@@ -1,36 +1,56 @@
-import React from 'react'
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+"use client";
 
-const tools = [
-    { title: "Medication Auditor", desc: "Automated analysis of medication orders for cost and clinical compliance.", icon: "📋" },
-    { title: "Formulary Manager", desc: "Digital management of hospice-specific drug lists and preferred medications.", icon: "🧪" },
-    { title: "Cost Predictor", desc: "AI-driven forecasting for patient medication expenses throughout care.", icon: "📉" },
-    { title: "PBM Connector", desc: "Direct integration with major Pharmacy Benefit Managers for instant claims.", icon: "🔗" }
-]
+import React from 'react'
+import { ToolCard } from '../Tools/ToolCard'
+import { tools } from '../Tools/Data'
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
+import { useInView } from '@/hooks/useInView'
 
 export default function ClinicalTools() {
+    const [gridRef, isInView] = useInView({ threshold: 0.1 });
+
     return (
-        <section className="py-24 bg-bg-secondary">
-            <div className="max-w-[1200px] mx-auto px-6">
-                <div className="text-center mb-16 space-y-4">
-                    <h2 className="text-4xl font-extrabold text-text-primary">Clinical <span className="text-primary italic">Intelligence</span></h2>
-                    <p className="text-text-secondary max-w-2xl mx-auto">Precision-built tools to handle the complexities of hospice medication management.</p>
+        <section className="bg-[#F8FAFC]">
+            {/* Dark Blue Banner - Matching Reference */}
+            <div className="bg-[#013074] py-5 px-6 text-center shadow-md">
+                <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                    Hospice Clinical Tools
+                </h2>
+            </div>
+
+            <div className="max-w-[1240px] mx-auto px-6 pt-8 pb-20">
+                {/* Centered Subtitle */}
+                <div className="text-center mb-12">
+                    <p className="text-[#5B7B9E] text-[1.1rem] leading-relaxed max-w-3xl mx-auto">
+                        Access our comprehensive collection of evidence-based clinical decision support tools designed specifically for hospice and palliative care professionals.
+                    </p>
                 </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {tools.map((tool) => (
-                        <Card key={tool.title} className="group border-border-color hover:border-primary/50 transition-all hover:shadow-xl rounded-3xl overflow-hidden bg-bg-primary">
-                            <CardHeader className="pb-2">
-                                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{tool.icon}</div>
-                                <CardTitle className="text-xl font-bold">{tool.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-text-secondary text-sm leading-relaxed">{tool.desc}</p>
-                            </CardContent>
-                        </Card>
+
+                <div 
+                    ref={gridRef}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                >
+                    {tools.slice(0, 8).map((tool, index) => (
+                        <div 
+                            key={index} 
+                            className={`opacity-0 ${isInView ? `animate-slide-up animation-delay-${(index % 8) * 100 + 100}` : ''}`}
+                        >
+                            <ToolCard {...tool} />
+                        </div>
                     ))}
+                </div>
+
+                {/* View All link for when showing 8 tools */}
+                <div className="mt-16 text-center">
+                    <Link
+                        href="/tools"
+                        className="inline-flex items-center gap-2 text-[#38B6FF] font-extrabold text-lg hover:gap-3 transition-all group"
+                    >
+                        Explore All Tools <ArrowRight size={22} className="transition-transform group-hover:translate-x-1" />
+                    </Link>
                 </div>
             </div>
         </section>
     )
-}
+}

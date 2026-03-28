@@ -1,73 +1,66 @@
+"use client";
+
+import React from 'react'
 import { Button, buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
 import Link from 'next/link'
+import { Zap } from 'lucide-react'
 
 export default function HeroSection() {
     return (
-        <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-40 overflow-hidden">
-            <div className="max-w-[1200px] mx-auto px-6 text-center lg:text-left grid grid-cols-1 lg:grid-cols-2 items-center gap-16">
-                <div className="space-y-8 animate-fade-in">
-                    <Badge variant="secondary" className="px-4 py-1.5 rounded-full text-primary bg-primary/10 border-none font-semibold uppercase tracking-widest text-[0.75rem]">
-                        Empowering Hospice Care
-                    </Badge>
-                    <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-text-primary leading-[1.05]">
-                        The Future of <span className="text-primary italic">Hospice Pharmacy</span> is Here.
+        <section className="relative h-[85vh] min-h-[600px] w-full flex items-center justify-center overflow-hidden">
+            {/* Background Image with Overlay and Blue Gradient */}
+            <div
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: 'url("/banner.jpg")' }}
+            >
+                {/* Dark overlay for readability */}
+                <div className="absolute inset-0 bg-black/20"></div>
+                {/* Blue brand gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#38B6FF]/20 via-transparent to-[#38B6FF]/20"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#38B6FF]/20 to-transparent"></div>
+            </div>
+
+            {/* Content Container */}
+            <div className="relative z-10 max-w-[900px] mx-auto px-6 text-center text-white flex flex-col items-center">
+                <div className="space-y-4">
+                    <h1 className="text-5xl lg:text-[68px] font-extrabold tracking-tight leading-[1.1] animate-slide-up opacity-0">
+                        Optimizing Comfort.<br />
+                        Minimizing Cost.<br />
+                        Saving Time.
                     </h1>
-                    <p className="text-xl text-text-secondary leading-relaxed max-w-xl mx-auto lg:mx-0">
-                        Maximize care efficiency and minimize pharmaceutical costs with our state-of-the-art management suite tailored specifically for clinicians and providers.
+                    
+                    <p className="text-lg lg:text-xl text-white/90 font-medium max-w-2xl mx-auto pt-4 leading-relaxed animate-slide-up animation-delay-200 opacity-0">
+                        Simplified hospice clinical solutions designed to enhance quality of life and streamline care
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
-                        <Link 
-                            href="/signup" 
-                            className={cn(
-                                buttonVariants({ variant: "default", size: "lg" }),
-                                "h-14 px-10 bg-primary hover:bg-primary-hover text-white font-bold rounded-xl shadow-xl shadow-primary/20 transition-all hover:-translate-y-1 flex items-center justify-center"
-                            )}
-                        >
-                            Get Started Now
-                        </Link>
-                        <Link 
-                            href="/tools" 
-                            className={cn(
-                                buttonVariants({ variant: "outline", size: "lg" }),
-                                "h-14 px-10 border-border-color rounded-xl font-bold bg-white transition-all hover:bg-bg-secondary flex items-center justify-center"
-                            )}
-                        >
-                            View Clinical Tools
-                        </Link>
-                    </div>
                 </div>
-                
-                <div className="relative hidden lg:block">
-                    <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-transparent blur-3xl opacity-30"></div>
-                    <div className="relative bg-white/40 backdrop-blur-2xl border border-white/40 p-10 rounded-[3rem] shadow-2xl">
-                        <div className="space-y-6">
-                            <div className="flex items-center gap-4 p-4 bg-white/80 rounded-2xl shadow-sm border border-border-color/50">
-                                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary text-2xl font-bold">✓</div>
-                                <div>
-                                    <div className="font-bold text-text-primary">Real-time Auditing</div>
-                                    <div className="text-sm text-text-secondary">Automated cost reconciliation</div>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-4 p-4 bg-primary/5 rounded-2xl border border-primary/20 translate-x-8">
-                                <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-white text-2xl font-bold">⚙</div>
-                                <div>
-                                    <div className="font-bold text-primary">PBM Integration</div>
-                                    <div className="text-sm text-primary/70">Seamless workflow sync</div>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-4 p-4 bg-white/80 rounded-2xl shadow-sm border border-border-color/50">
-                                <div className="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center text-green-600 text-2xl font-bold">$</div>
-                                <div>
-                                    <div className="font-bold text-text-primary">Net Savings</div>
-                                    <div className="text-sm text-text-secondary">+32% Average per patient</div>
-                                </div>
-                            </div>
+
+                <div className="mt-12 flex flex-col items-center gap-8 animate-slide-up animation-delay-400 opacity-0">
+                    {/* Primary Button - Fixed Hover */}
+                    <Link 
+                        href="/tools" 
+                        className={cn(
+                            buttonVariants({ variant: "default", size: "lg" }),
+                            "h-16 px-12 bg-[#38B6FF] hover:!bg-[#2e93ff] text-white font-bold rounded-2xl shadow-2xl shadow-[#38B6FF]/40 transition-all hover:scale-105 active:scale-95 text-lg border-none"
+                        )}
+                    >
+                        Explore Tools
+                    </Link>
+
+                    {/* Badge Pills */}
+                    <div className="flex flex-wrap justify-center gap-4 animation-delay-600">
+                        <div className="flex items-center gap-2 px-6 py-3 bg-white rounded-full text-[#003B73] font-bold text-sm shadow-xl hover:scale-105 transition-transform">
+                            <Zap size={16} fill="#38B6FF" className="text-[#38B6FF]" />
+                            Evidence Based
+                        </div>
+                        <div className="flex items-center gap-2 px-6 py-3 bg-white rounded-full text-[#003B73] font-bold text-sm shadow-xl hover:scale-105 transition-transform">
+                            By Clinicians, for Clinicians
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     )
-}
+}
+
