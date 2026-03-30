@@ -11,18 +11,23 @@ export default function ClinicalTools() {
     const [gridRef, isInView] = useInView({ threshold: 0.1 });
 
     return (
-        <section className="bg-[#F8FAFC]">
+        <section className="relative overflow-hidden">
+            {/* Background Gradient - Matching BeyondClinicalTools for consistency */}
+            <div className="absolute inset-0 bg-[#F8FAFC] -z-20" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white via-[#BAEFFF] to-[#F8FAFC] -z-10 opacity-70" />
+            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white/40 to-transparent blur-[120px] -z-10" />
+
             {/* Dark Blue Banner - Matching Reference */}
-            <div className="bg-[#013074] py-5 px-6 text-center shadow-md">
+            <div className="bg-[#013074] py-5 px-6 text-center shadow-md relative z-10">
                 <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
                     Hospice Clinical Tools
                 </h2>
             </div>
 
-            <div className="max-w-[1240px] mx-auto px-6 pt-8 pb-20">
+            <div className="max-w-[1240px] mx-auto px-6 pt-12 pb-24 relative z-10">
                 {/* Centered Subtitle */}
-                <div className="text-center mb-12">
-                    <p className="text-[#5B7B9E] text-[1.1rem] leading-relaxed max-w-3xl mx-auto">
+                <div className="text-center mb-16">
+                    <p className="text-[#033074] text-[1.15rem] font-bold leading-relaxed max-w-3xl mx-auto opacity-90">
                         Access our comprehensive collection of evidence-based clinical decision support tools designed specifically for hospice and palliative care professionals.
                     </p>
                 </div>
@@ -34,7 +39,7 @@ export default function ClinicalTools() {
                     {tools.slice(0, 8).map((tool, index) => (
                         <div 
                             key={index} 
-                            className={`opacity-0 ${isInView ? `animate-slide-up animation-delay-${(index % 8) * 100 + 100}` : ''}`}
+                            className={`h-full opacity-0 ${isInView ? `animate-slide-up animation-delay-${(index % 8) * 100 + 100}` : ''}`}
                         >
                             <ToolCard {...tool} />
                         </div>

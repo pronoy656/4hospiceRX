@@ -22,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
         <Navbar />
         <main style={{ minHeight: "calc(100vh - 400px)", paddingTop: "80px" }}>
           {children}
@@ -33,4 +33,3 @@ export default function RootLayout({
     </html>
   );
 }
-

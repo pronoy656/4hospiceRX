@@ -10,8 +10,8 @@ interface ToolCardProps {
 
 export const ToolCard: React.FC<ToolCardProps> = ({ title, desc, icon }) => {
     return (
-        <Card className="border border-[#E2E8F0] rounded-[24px] shadow-sm hover:shadow-md transition-shadow bg-white flex flex-col justify-between">
-            <div className="p-7 flex flex-col gap-4">
+        <Card className="border border-[#E2E8F0] rounded-[24px] shadow-sm hover:shadow-md transition-shadow bg-white flex flex-col justify-between h-full">
+            <div className="p-7 flex flex-col gap-4 flex-1">
                 <div className="w-12 h-12 bg-[#E3F2FF] rounded-[14px] flex items-center justify-center text-[#38B6FF]">
                     {icon}
                 </div>
