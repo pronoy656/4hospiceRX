@@ -26,7 +26,7 @@ const solutions = [
 
 export default function DmeSolutions() {
     return (
-        <section className="py-24 px-6 relative bg-gradient-to-b from-white via-[#F8FAFC] to-white">
+        <section className="py-24 px-6 relative bg-gradient-to-b from-[#BAE6FD] to-white">
             <div className="max-w-[1200px] mx-auto">
                 <div className="flex flex-col items-center text-center mb-20">
                     <div className="w-16 h-16 bg-[#F1F5F9] rounded-2xl flex items-center justify-center text-[#013074] mb-8 shadow-sm">
@@ -42,15 +42,15 @@ export default function DmeSolutions() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1000px] mx-auto">
                     {solutions.map((item, i) => (
-                        <div key={i} className="bg-white p-10 rounded-[2.5rem] border border-[#F1F5F9] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.06)] flex items-start gap-8 transition-all hover:translate-y-[-5px] hover:shadow-xl duration-500">
+                        <div key={i} className="bg-white p-10 rounded-[2.5rem] border border-[#F1F5F9] flex items-start gap-8 transition-all hover:translate-y-[-5px] hover:shadow-lg duration-500">
                             <div className="w-14 h-14 bg-[#F8FAFC] rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                                 {item.icon}
                             </div>
                             <div className="space-y-2">
-                                <h3 className="text-xl font-bold text-[#013074] tracking-tight leading-tight">
+                                <h3 className="text-xl font-bold text-[#013074] tracking-tight leading-tight uppercase">
                                     {item.title}
                                 </h3>
-                                <p className="text-[#64748B] text-sm font-semibold opacity-70 leading-relaxed">
+                                <p className="text-[#64748B] leading-relaxed opacity-90">
                                     {item.desc}
                                 </p>
                             </div>

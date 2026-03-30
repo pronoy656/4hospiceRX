@@ -14,7 +14,7 @@ const badges = ["Clinical Evidence", "Dosing Protocols", "Medication Compatibili
 
 export default function CatheterInsights() {
     return (
-        <section className="py-24 px-6 bg-gradient-to-b from-white to-[#F0F9FF]">
+        <section className="py-24 px-6 bg-gradient-to-b from-[#BAEFFF] via-white to-[#BAE6FD]">
             <div className="max-w-[1200px] mx-auto">
                 <div className="bg-white rounded-[3rem] shadow-[0_30px_100px_-20px_rgba(0,0,0,0.08)] p-10 md:p-16 flex flex-col lg:flex-row gap-16 border border-gray-50">
                     
@@ -28,7 +28,7 @@ export default function CatheterInsights() {
                                 <h2 className="text-3xl font-black text-[#013074] tracking-tight leading-tight">
                                     Macy Catheter Insights
                                 </h2>
-                                <p className="text-[#38B6FF] font-bold text-sm uppercase tracking-wider mt-1">
+                                <p className="text-[#38B6FF] font-black text-sm uppercase tracking-wider mt-1">
                                     Alternative Medication Delivery
                                 </p>
                             </div>
