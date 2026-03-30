@@ -1,20 +1,15 @@
-import RouteHero from "@/components/common/RouteHero";
+import HeroSection from "@/components/Pharmacy-Solutions/HeroSection";
+import PbmOverview from "@/components/Pharmacy-Solutions/PbmOverview";
+import CatheterInsights from "@/components/Pharmacy-Solutions/CatheterInsights";
+import DmeSolutions from "@/components/Pharmacy-Solutions/DmeSolutions";
 
 export default function PharmacySolutions() {
   return (
-    <div>
-      <RouteHero 
-        title="Customized Pharmacy Solutions" 
-        subtitle="Bridging the gap between hospice care and pharmaceutical providers."
-        badge="Integration Hub"
-      />
-      <div className="container" style={{ padding: "5rem 0" }}>
-        <p style={{ textAlign: "center", color: "var(--text-secondary)", fontSize: "1.1rem" }}>
-          We provide enterprise-grade PBM integration, custom formulary 
-          management, and direct-to-pharmacy order processing for hospice organizations 
-          of all sizes.
-        </p>
-      </div>
+    <div >
+      <HeroSection />
+      <PbmOverview />
+      <CatheterInsights />
+      <DmeSolutions />
     </div>
   );
 }

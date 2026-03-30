@@ -34,9 +34,9 @@ const ConfettiPiece = ({ delay }: { delay: number }) => {
   if (!position) return null;
 
   return (
-    <div 
+    <div
       className="fixed -top-12 pointer-events-none text-4xl animate-confetti-fall z-[4000]"
-      style={{ 
+      style={{
         left: `${position.left}%`,
         "--rotate": `${position.rotate}deg`,
         "--scale": position.scale,
@@ -99,7 +99,7 @@ export function AccessDialog({ isOpen, onOpenChange }: AccessDialogProps) {
               {step === 'form' ? 'Get Full Access' : 'Almost There!'}
             </DialogTitle>
             <DialogDescription className="text-white/90 text-center leading-snug max-w-[320px] mx-auto font-medium">
-              {step === 'form' 
+              {step === 'form'
                 ? 'Enter your email to unlock all clinical tools and save your calculations'
                 : 'Success! Your clinical journey is about to begin.'}
             </DialogDescription>
@@ -116,7 +116,7 @@ export function AccessDialog({ isOpen, onOpenChange }: AccessDialogProps) {
                     "Save and export calculations",
                     "Get updates on new features"
                   ].map((text, i) => (
-                    <li key={i} className="flex items-center gap-4 text-[#013074] font-bold text-[1.1rem]">
+                    <li key={i} className="flex items-center gap-4 text-[#013074] font-bold">
                       <div className="text-[#38B6FF] flex-shrink-0">
                         <div className="w-6 h-6 rounded-full border-2 border-[#38B6FF] flex items-center justify-center">
                           <Check size={14} strokeWidth={4} />
