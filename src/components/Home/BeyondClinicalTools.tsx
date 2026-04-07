@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import Link from 'next/link';
 import { BookOpen, Building2, Syringe, Package, ChevronRight } from 'lucide-react';
 import { useInView } from '@/hooks/useInView';
 
@@ -11,6 +11,7 @@ const blocks = [
     icon: BookOpen,
     btnText: "Browse",
     btnType: "blue",
+    link: "/patient-education-resources"
   },
   {
     title: "Hospice PBM / Pharmacy Solution Overview",
@@ -18,6 +19,7 @@ const blocks = [
     icon: Building2,
     btnText: "Learn More",
     btnType: "grey",
+    link: "/solutions/pbm"
   },
   {
     title: "Macy Catheter Insights",
@@ -25,6 +27,7 @@ const blocks = [
     icon: Syringe,
     btnText: "Read More",
     btnType: "blue",
+    link: "/solutions/macy-catheter"
   },
   {
     title: "DME Solutions",
@@ -32,6 +35,7 @@ const blocks = [
     icon: Package,
     btnText: "Explore",
     btnType: "grey",
+    link: "/solutions/dme"
   }
 ];
 
@@ -84,18 +88,21 @@ export default function BeyondClinicalTools() {
                 </p>
               </div>
 
-              <button className={`
-                inline-flex items-center gap-2 font-bold py-3 px-8 rounded-xl transition-all duration-300 transform group-hover:translate-x-1
-                ${block.btnType === 'blue' 
-                  ? 'bg-gradient-to-r from-[#0EA5E9] to-[#0284C7] text-white hover:shadow-xl hover:shadow-sky-500/40' 
-                  : 'bg-[#F1F5F9] text-[#1D4ED8] hover:bg-[#E2E8F0]'}
-              `}>
+              <Link 
+                href={block.link}
+                className={`
+                  inline-flex items-center gap-2 font-bold py-3 px-8 rounded-xl transition-all duration-300 transform group-hover:translate-x-1
+                  ${block.btnType === 'blue' 
+                    ? 'bg-gradient-to-r from-[#0EA5E9] to-[#0284C7] text-white hover:shadow-xl hover:shadow-sky-500/40' 
+                    : 'bg-[#F1F5F9] text-[#1D4ED8] hover:bg-[#E2E8F0]'}
+                `}
+              >
                 {block.btnText} <ChevronRight size={18} strokeWidth={3} />
-              </button>
+              </Link>
             </div>
           ))}
         </div>
       </div>
     </section>
   );
-}
+}
