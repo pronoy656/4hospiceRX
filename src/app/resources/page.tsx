@@ -1,19 +1,16 @@
-import RouteHero from "@/components/common/RouteHero";
+import HeroSection from "@/components/Resoources/HeroSection";
+import ResourceGrid from "@/components/Resoources/ResourceGrid";
+import FeaturedResources from "@/components/Resoources/FeaturedResources";
 
 export default function Resources() {
   return (
-    <div>
-      <RouteHero 
-        title="Knowledge & Insights" 
-        subtitle="Stay ahead with latest hospice trends and medication breakthroughs."
-        badge="Resource Library"
-      />
-      <div className="container" style={{ padding: "5rem 0" }}>
-        <p style={{ textAlign: "center", color: "var(--text-secondary)", fontSize: "1.1rem" }}>
-          Explore our collection of whitepapers, clinical case studies, and 
-          industry webinars dedicated to the evolution of medication 
-          management in hospice settings.
-        </p>
+    <div className="min-h-screen bg-white">
+      <HeroSection />
+      {/* Background Wrapper for Resource Section to ensure seamless mix */}
+      <div className="relative">
+        <div className="absolute top-0 inset-x-0 h-[500px] bg-gradient-to-b from-white via-sky-50/40 to-transparent -z-10" />
+        <ResourceGrid />
+        <FeaturedResources />
       </div>
     </div>
   );
