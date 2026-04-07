@@ -27,7 +27,7 @@ const blocks = [
     icon: Syringe,
     btnText: "Read More",
     btnType: "blue",
-    link: "/solutions/macy-catheter"
+    link: "/macy-catheter"
   },
   {
     title: "DME Solutions",
