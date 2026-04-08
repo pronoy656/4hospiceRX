@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ToolHero } from "@/components/Tools/AntibioticTool/Tools & Tabs/Shared/ToolHero";
 import { ToolTabs } from "@/components/Tools/AntibioticTool/Tools & Tabs/Shared/ToolTabs";
 import { UTITab } from "@/components/Tools/AntibioticTool/Tools & Tabs/UTI/UTITab";
@@ -118,55 +119,69 @@ export default function AntibioticDecisionTool() {
       <main className="max-w-[1200px] mx-auto px-6 pt-12 pb-20 relative z-20">
         <ToolTabs activeTab={activeTab} setActiveTab={handleTabChange} />
 
-        <div className="space-y-12">
-          {activeTab === "UTI" && (
-            <UTITab 
-              data={currentData}
-              selectedSymptoms={selectedSymptoms}
-              toggleSymptom={toggleSymptom}
-              trialedAntibiotics={trialedAntibiotics}
-              toggleAntibiotic={toggleAntibiotic}
-            />
-          )}
+        <div className="relative min-h-[600px]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ 
+                duration: 0.4, 
+                ease: [0.23, 1, 0.32, 1] 
+              }}
+              className="space-y-12"
+            >
+              {activeTab === "UTI" && (
+                <UTITab 
+                  data={currentData}
+                  selectedSymptoms={selectedSymptoms}
+                  toggleSymptom={toggleSymptom}
+                  trialedAntibiotics={trialedAntibiotics}
+                  toggleAntibiotic={toggleAntibiotic}
+                />
+              )}
 
-          {activeTab === "Pneumonia" && (
-            <PneumoniaTab 
-              data={currentData}
-              selectedSymptoms={selectedSymptoms}
-              toggleSymptom={toggleSymptom}
-              trialedAntibiotics={trialedAntibiotics}
-              toggleAntibiotic={toggleAntibiotic}
-            />
-          )}
+              {activeTab === "Pneumonia" && (
+                <PneumoniaTab 
+                  data={currentData}
+                  selectedSymptoms={selectedSymptoms}
+                  toggleSymptom={toggleSymptom}
+                  trialedAntibiotics={trialedAntibiotics}
+                  toggleAntibiotic={toggleAntibiotic}
+                />
+              )}
 
-          {activeTab === "Skin" && (
-            <SkinTab 
-              data={currentData}
-              selectedSymptoms={selectedSymptoms}
-              toggleSymptom={toggleSymptom}
-              trialedAntibiotics={trialedAntibiotics}
-              toggleAntibiotic={toggleAntibiotic}
-            />
-          )}
+              {activeTab === "Skin" && (
+                <SkinTab 
+                  data={currentData}
+                  selectedSymptoms={selectedSymptoms}
+                  toggleSymptom={toggleSymptom}
+                  trialedAntibiotics={trialedAntibiotics}
+                  toggleAntibiotic={toggleAntibiotic}
+                />
+              )}
 
-          {activeTab === "Sepsis" && (
-            <SepsisTab 
-              data={currentData}
-              selectedSymptoms={selectedSymptoms}
-              toggleSymptom={toggleSymptom}
-              trialedAntibiotics={trialedAntibiotics}
-              toggleAntibiotic={toggleAntibiotic}
-            />
-          )}
+              {activeTab === "Sepsis" && (
+                <SepsisTab 
+                  data={currentData}
+                  selectedSymptoms={selectedSymptoms}
+                  toggleSymptom={toggleSymptom}
+                  trialedAntibiotics={trialedAntibiotics}
+                  toggleAntibiotic={toggleAntibiotic}
+                />
+              )}
 
-          {!["UTI", "Pneumonia", "Skin", "Sepsis"].includes(activeTab) && (
-            <div className="py-24 text-center bg-white rounded-[32px] border border-dashed border-slate-200 shadow-sm">
-               <h3 className="text-xl font-bold text-[#003B73] mb-2">{currentData.title}</h3>
-               <p className="text-slate-400 font-medium">This assessment module is currently under development.</p>
-            </div>
-          )}
+              {!["UTI", "Pneumonia", "Skin", "Sepsis"].includes(activeTab) && (
+                <div className="py-24 text-center bg-white rounded-[32px] border border-dashed border-slate-200 shadow-sm">
+                   <h3 className="text-xl font-bold text-[#003B73] mb-2">{currentData.title}</h3>
+                   <p className="text-slate-400 font-medium">This assessment module is currently under development.</p>
+                </div>
+              )}
 
-          <ToolActions />
+              <ToolActions />
+            </motion.div>
+          </AnimatePresence>
         </div>
       </main>
     </div>
