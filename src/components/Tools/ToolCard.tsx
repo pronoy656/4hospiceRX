@@ -2,13 +2,16 @@ import React from 'react'
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
+import Link from "next/link";
+
 interface ToolCardProps {
+    slug: string;
     title: string;
     desc: string;
     icon: React.ReactNode;
 }
 
-export const ToolCard: React.FC<ToolCardProps> = ({ title, desc, icon }) => {
+export const ToolCard: React.FC<ToolCardProps> = ({ slug, title, desc, icon }) => {
     return (
         <Card className="border border-[#E2E8F0] rounded-[24px] shadow-sm hover:shadow-md transition-shadow bg-white flex flex-col justify-between h-full">
             <div className="p-7 flex flex-col gap-4 flex-1">
@@ -27,9 +30,11 @@ export const ToolCard: React.FC<ToolCardProps> = ({ title, desc, icon }) => {
             </div>
 
             <div className="px-7 pb-7 pt-0">
-                <Button className="w-full h-11 bg-[#38B6FF] hover:!bg-[#2e93ff] text-white font-bold rounded-xl transition-all shadow-sm border-none cursor-pointer">
-                    Launch Tool
-                </Button>
+                <Link href={`/tools/${slug}`} className="block">
+                    <Button className="w-full h-11 bg-[#38B6FF] hover:!bg-[#2e93ff] text-white font-bold rounded-xl transition-all shadow-sm border-none cursor-pointer">
+                        Launch Tool
+                    </Button>
+                </Link>
             </div>
         </Card>
     );
