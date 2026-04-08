@@ -54,6 +54,10 @@
     animation: slideUp 0.8s ease-out forwards;
   }
 
+  .animate-slide-down {
+    animation: slideDown 0.8s ease-out forwards;
+  }
+
   .animate-spin-slow {
     animation: spin 8s linear infinite;
   }
@@ -80,6 +84,11 @@
 
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 

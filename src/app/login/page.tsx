@@ -1,40 +1,116 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import React from "react";
+import LoginForm from "@/components/Login/LoginForm";
+import { Stethoscope, ShieldCheck, BookOpenCheck, CheckCircle2 } from "lucide-react";
 
-export default function Login() {
+export default function LoginPage() {
   return (
-    <div className="min-h-[calc(100vh-400px)] flex items-center justify-center py-24 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.03),transparent_70%)]">
-      <Card className="w-full max-w-[440px] shadow-2xl border-border-color rounded-3xl p-4 overflow-hidden">
-        <CardHeader className="text-center space-y-4 pb-8">
-          <CardTitle className="text-3xl font-extrabold text-text-primary">Welcome Back</CardTitle>
-          <CardDescription className="text-text-secondary text-base">Login to access your hospice management dashboard.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form className="space-y-6">
-            <div className="space-y-2.5">
-              <Label htmlFor="email" className="font-bold text-sm text-text-primary ml-1">Email Address</Label>
-              <Input id="email" type="email" placeholder="email@hospice.org" className="h-12 rounded-xl border-border-color bg-bg-primary focus:ring-2 focus:ring-primary/20" />
+    <div className="min-h-screen flex flex-col md:flex-row bg-white">
+      {/* Visual / Info Side */}
+      <div className="hidden md:flex md:w-1/2 relative bg-[#0047AB] overflow-hidden flex-col justify-between p-12 lg:p-20">
+        {/* Background Decorative Elements */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,182,255,0.4),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(0,82,204,0.6),transparent_60%)]" />
+        <div className="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+          </svg>
+        </div>
+
+        {/* Brand */}
+        <div className="relative z-10">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center shadow-xl">
+              <div className="w-5 h-5 bg-white rounded-md transform rotate-12" />
             </div>
-            <div className="space-y-2.5">
-              <Label htmlFor="pass" className="font-bold text-sm text-text-primary ml-1">Password</Label>
-              <Input id="pass" type="password" placeholder="••••••••" className="h-12 rounded-xl border-border-color bg-bg-primary focus:ring-2 focus:ring-primary/20" />
+            <span className="text-2xl font-black text-white tracking-tight">4HospiceRX</span>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-lg mt-auto mb-10">
+          <h2 className="text-4xl lg:text-5xl font-extrabold text-white mb-8 tracking-tight leading-tight">
+            Streamlining Care for <br />
+            <span className="text-sky-300">Modern Hospice.</span>
+          </h2>
+
+          <div className="space-y-8">
+            <div className="flex gap-5 group">
+              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center shadow-xl transition-transform duration-500 group-hover:scale-110 group-hover:bg-white/15">
+                <Stethoscope className="w-7 h-7 text-sky-300" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white mb-1">12 Clinical Tools</h3>
+                <p className="text-sky-100/80 leading-relaxed font-medium">
+                  Comprehensive hospice and palliative care decision support.
+                </p>
+              </div>
             </div>
-            <Button className="w-full h-12 bg-primary hover:bg-primary-hover text-white font-bold rounded-xl shadow-lg shadow-primary/20 transition-all hover:-translate-y-0.5 mt-4">
-              Login to Dashboard
-            </Button>
-          </form>
-        </CardContent>
-        <CardFooter className="justify-center pt-4">
-          <p className="text-sm text-text-secondary">
-            Don't have an account? <Link href="/signup" className="text-primary font-bold hover:underline">Sign Up</Link>
-          </p>
-        </CardFooter>
-      </Card>
+
+            <div className="flex gap-5 group">
+              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center shadow-xl transition-transform duration-500 group-hover:scale-110 group-hover:bg-white/15">
+                <ShieldCheck className="w-7 h-7 text-sky-400" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white mb-1">Secure & Compliant</h3>
+                <p className="text-sky-100/80 leading-relaxed font-medium">
+                  HIPAA compliant with enterprise-grade security for patient data.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-5 group">
+              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center shadow-xl transition-transform duration-500 group-hover:scale-110 group-hover:bg-white/15">
+                <BookOpenCheck className="w-7 h-7 text-sky-200" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white mb-1">Evidence-Based</h3>
+                <p className="text-sky-100/80 leading-relaxed font-medium">
+                  Built on the latest clinical guidelines and peer-reviewed research.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer info */}
+        <div className="relative z-10 pt-8 border-t border-white/10 flex items-center gap-6">
+          <div className="flex items-center gap-2 text-sky-200/60 text-sm font-medium">
+            <CheckCircle2 className="w-4 h-4" />
+            <span>ISO 27001 Certified</span>
+          </div>
+          <div className="flex items-center gap-2 text-sky-200/60 text-sm font-medium">
+            <CheckCircle2 className="w-4 h-4" />
+            <span>HITRUST Certified</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Form Side */}
+      <div className="flex-1 flex flex-col px-6 py-12 lg:px-20 bg-slate-50/30">
+        <div className="flex-1 flex flex-col justify-center items-center">
+          {/* Mobile Header (Brand only visible on mobile) */}
+          <div className="md:hidden flex items-center gap-3 mb-12">
+            <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shadow-xl shadow-blue-500/20">
+              <div className="w-5 h-5 bg-white rounded-md transform rotate-12" />
+            </div>
+            <span className="text-2xl font-black text-slate-900 tracking-tight">4HospiceRX</span>
+          </div>
+
+          <LoginForm />
+        </div>
+
+        {/* Bottom utility links */}
+        <div className="mt-auto pt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 text-slate-400 text-[13px] font-medium">
+          <a href="#" className="hover:text-slate-600 transition-colors">Privacy Policy</a>
+          <a href="#" className="hover:text-slate-600 transition-colors">Terms of Service</a>
+          <a href="#" className="hover:text-slate-600 transition-colors">Help Center</a>
+        </div>
+      </div>
     </div>
   );
 }
-
-

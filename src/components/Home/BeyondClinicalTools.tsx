@@ -19,7 +19,7 @@ const blocks = [
     icon: Building2,
     btnText: "Learn More",
     btnType: "grey",
-    link: "/solutions/pbm"
+    link: "/pharmacy-solutions"
   },
   {
     title: "Macy Catheter Insights",
@@ -51,7 +51,7 @@ export default function BeyondClinicalTools() {
       <div className="absolute inset-x-0 top-1/4 bottom-1/4 bg-white/50 blur-[120px] -z-10" />
 
       <div className="max-w-7xl mx-auto">
-        <div 
+        <div
           ref={headerRef}
           className={`text-center mb-16 transition-all duration-1000 ${headerInView ? 'opacity-100' : 'opacity-0'}`}
         >
@@ -66,19 +66,19 @@ export default function BeyondClinicalTools() {
           </p>
         </div>
 
-        <div 
+        <div
           ref={gridRef}
           className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10"
         >
           {blocks.map((block, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className={`bg-white/90 backdrop-blur-md border border-white/50 p-8 md:p-10 rounded-[2.5rem] shadow-[0_15px_45px_-15px_rgba(14,165,233,0.1)] flex flex-col items-start gap-6 hover:shadow-[0_25px_65px_-15px_rgba(14,165,233,0.2)] transition-all duration-500 group opacity-0 ${gridInView ? `animate-slide-up animation-delay-${index * 100 + 300}` : ''}`}
             >
               <div className="w-14 h-14 bg-[#E0F2FE] rounded-2xl flex items-center justify-center text-[#0EA5E9] shadow-[inset_0_1px_4px_rgba(0,0,0,0.05)] transition-all duration-500 group-hover:scale-110 group-hover:bg-[#0EA5E9] group-hover:text-white">
                 <block.icon size={28} strokeWidth={2} />
               </div>
-              
+
               <div className="flex-1">
                 <h3 className="text-2xl font-bold text-[#013074] mb-3 group-hover:text-[#0EA5E9] transition-colors duration-300">
                   {block.title}
@@ -88,12 +88,12 @@ export default function BeyondClinicalTools() {
                 </p>
               </div>
 
-              <Link 
+              <Link
                 href={block.link}
                 className={`
                   inline-flex items-center gap-2 font-bold py-3 px-8 rounded-xl transition-all duration-300 transform group-hover:translate-x-1
-                  ${block.btnType === 'blue' 
-                    ? 'bg-gradient-to-r from-[#0EA5E9] to-[#0284C7] text-white hover:shadow-xl hover:shadow-sky-500/40' 
+                  ${block.btnType === 'blue'
+                    ? 'bg-gradient-to-r from-[#0EA5E9] to-[#0284C7] text-white hover:shadow-xl hover:shadow-sky-500/40'
                     : 'bg-[#F1F5F9] text-[#1D4ED8] hover:bg-[#E2E8F0]'}
                 `}
               >

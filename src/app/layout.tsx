@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/common/Navbar";
-import Footer from "@/components/common/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -16,6 +14,8 @@ export const metadata: Metadata = {
   viewport: "width=device-width, initial-scale=1",
 };
 
+import LayoutWrapper from "@/components/common/LayoutWrapper";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,11 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className} suppressHydrationWarning>
-        <Navbar />
-        <main style={{ minHeight: "calc(100vh - 400px)", paddingTop: "80px" }}>
+        <LayoutWrapper>
           {children}
-        </main>
-        <Footer />
+        </LayoutWrapper>
       </body>
     </html>
   );
